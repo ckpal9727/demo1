@@ -11,6 +11,9 @@
 	}
 </style>
 	<BODY>
+			<div class="container d-flex justify-conent-center">
+			<div><h1><b> PHP CRUD OPERATION</b></h1></div>
+		</div><br>
 		<div class="container d-flex justify-content-canter">
 		<form method="get">
 		<table  class="table table-hover">
