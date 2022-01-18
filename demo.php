@@ -1,5 +1,5 @@
 <?php
-class user
+class user1
 {
 	public function connection()
 	{
@@ -38,15 +38,17 @@ class user
 	}
 	public function data_insert($con,$username,$password)
 	{
-		$query="insert into user_master (u_name,u_password) values('ck','pal')";
-		if(mysqli_query($con,$query))	
+		$query="insert into user_master (u_name,u_password) values('$username','$password')";
+				if(mysqli_query($con,$query))
 		{
-			echo "data inserted";
+			echo "okk";
 		}
 		else
 		{
 			echo "not";
 		}
+		
+		
 	}
 	
 }
