@@ -1,4 +1,55 @@
+
+<script>
+function sele()
+{
+	var ele=document.getElementByName('check');
+	for i in val
+	{
+		
+	}
+}
+</script>
 <?php
+if(isset($_POST['del']))
+{
+	$chk=$_POST['check'];
+	$i=0;
+	while($i<sizeof($chk))
+	{
+		$filename="tmp"."\\".$chk[$i];
+		unlink($filename);
+		$i++;
+	}
+}
+if(isset($_POST['cop']))
+{
+	$chk=$_POST['check'];
+	//print_r($chk);
+	$i=0;
+	while($i<sizeof($chk))
+	{
+		//$filename="tmp"."\\".$chk[$i];
+		$sr="tmp"."\\".$chk[$i];
+		$ds="tmp1"."\\".$chk[$i];
+		copy($sr,$ds);
+		$i++;
+	}
+}
+if(isset($_POST['mov']))
+{
+	$chk=$_POST['check'];
+	//print_r($chk);
+	$i=0;
+	while($i<sizeof($chk))
+	{
+		//$filename="tmp"."\\".$chk[$i];
+		$sr="tmp"."\\".$chk[$i];
+		$ds="tmp1"."\\".$chk[$i];
+		copy($sr,$ds);
+		unlink($sr);
+		$i++;
+	}
+}
 
 	$dir="tmp";
 	if(!file_exists($dir))
@@ -10,11 +61,15 @@
 	{
 	?>
 <form method="post">
-	<input type="checkbox" name="check[]"><?php echo $f."<br>";?>
+	<input type="checkbox" name="check[]" value="<?php echo $f?>"><?php echo $f."<br>";?>
 	<?php 
-	
 	}
 	?>
+
+<input type="button" name="sel" value="select" onclick="sele()">
+<input type="submit" name="cop" value="cop">
+<input type="submit" name="del" value="delete">
+<input type="submit" name="mov" value="move">
 </form>
 <form method="post" action="create.php">
 <input type="submit" name="create" value="create">
