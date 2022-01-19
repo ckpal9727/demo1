@@ -1,10 +1,17 @@
 
 <script>
+<script type="text/javascript">
 function sele()
 {
-	var ele=document.getElementsByName('check[]');
-	n=ele.lenght();
-	console(n);
+	var ele=document.getElementsByName("check[]");
+    var n=ele.length;
+    //console.log(n);
+    
+    var i=0
+    for(i=0;i<n;i++)
+    {
+        ele[i].checked=true;
+    }
 }
 </script>
 <?php
