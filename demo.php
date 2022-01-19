@@ -50,6 +50,26 @@ class user1
 		
 		
 	}
+	 public function data_search($con,$username)
+    {
+        $f=0;
+        	$query="select * from user_master where u_name='$username'";
+            $result=(mysqli_query($con,$query));
+            if($result<1)
+            {
+                $f=1;
+                echo "not found";
+            }
+            else
+            {
+               while($row=mysqli_fetch_array($result))
+               {
+                   echo "the name is find at ".$row['u_id']."<br>";
+               }
+            }
+           
+
+    }
 	
 }
 ?>
