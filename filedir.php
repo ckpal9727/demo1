@@ -2,11 +2,9 @@
 <script>
 function sele()
 {
-	var ele=document.getElementByName('check');
-	for i in val
-	{
-		
-	}
+	var ele=document.getElementsByName('check[]');
+	n=ele.lenght();
+	console(n);
 }
 </script>
 <?php
