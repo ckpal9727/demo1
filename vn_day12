@@ -1,0 +1,56 @@
+----------------------------searchresult;
+<html>
+<body>
+<?php
+	$con=mysqli_connect("localhost","root","","mca-1");
+	if(!$con)
+	{
+		die("not connect");
+	}
+	$h=$_POST['req'];
+	$query="select name from user_master where name='$h';";
+	$result=(mysqli_query($con,$query));
+	$no_row=mysqli_num_rows($result);
+	
+	if($no_row>0)
+	{
+		while ($row=mysqli_fetch_array($result)) {
+		echo $row['name'];
+	}
+	}
+	else
+	{
+		echo "not found";
+	}
+?>
+</body>
+</html>
+
+-------------------------------suggestion;
+<html>
+<head>
+<script src="jquery.txt"></script>
+<script>
+	$("document").ready(function(){
+		$('#h').keyup(function(){
+			var q=document.getElementById('h').value;
+			$.ajax({
+			url:'searchresult.php',
+			method:'POST',
+			data:{req:q},
+			success:function(response)
+			{
+				$("#list").html(response);
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+	Name:<input type="text" name="" id="h">
+	<ul>
+		<li id="list"></li>
+	</ul>
+</body>
+</html>
